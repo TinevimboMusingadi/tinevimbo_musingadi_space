@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
   webpack: (config) => {
     config.module.rules.push({
       test: /\.md$/,
@@ -8,6 +9,7 @@ const nextConfig = {
     return config;
   },
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
