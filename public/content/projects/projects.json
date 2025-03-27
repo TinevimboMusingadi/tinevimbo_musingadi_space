@@ -1,0 +1,90 @@
+{
+  "flood-device": {
+    "title": "Last Minute Flood Forecasting Device",
+    "description": "Invented a proof of concept flash flood forecasting device that used embedded systems and AI to predict flash flooding.",
+    "category": "hybrid-engineering",
+    "icon": "FaWater",
+    "image": "cover.jpg",
+    "content": "# Project Overview...",
+    "skills": [
+      {
+        "name": "Python",
+        "iconName": "SiPython"
+      },
+      {
+        "name": "TensorFlow",
+        "iconName": "SiTensorflow"
+      }
+    ],
+    "details": {
+      "summary": "An innovative device that combines embedded systems and machine learning to provide early warning for flash floods.",
+      "keyObjectives": [
+        "Develop real-time flood prediction system",
+        "Create embedded AI solution",
+        "Implement low-cost sensor network"
+      ],
+      "challenges": [
+        "Limited computational resources",
+        "Real-time processing requirements",
+        "Environmental durability"
+      ],
+      "learnings": [
+        "Embedded ML optimization",
+        "Sensor data processing",
+        "Weather pattern analysis"
+      ]
+    },
+    "links": {
+      "github": "https://github.com/yourusername/flood-forecast",
+      "youtube": "https://youtube.com/watch?v=...",
+      "documentation": "https://docs.google.com/..."
+    },
+    "galleryImages": [
+      "prototype.jpg",
+      "architecture.png",
+      "demo.mp4"
+    ]
+  },
+  "project-2": {
+    "title": "Example Project 2",
+    "description": "Another example project description",
+    "category": "software-ai",
+    "icon": "FaCode",
+    "image": "/content/projects/project-2/cover.jpg",
+    "content": "# Example Project 2\n\nThis is another example project description written in markdown.\n\n## Technologies Used\n\n- Technology 1\n- Technology 2\n- Technology 3\n\n## Implementation\n\nDetailed implementation description goes here.",
+    "skills": [
+      {
+        "name": "React",
+        "iconName": "SiReact"
+      },
+      {
+        "name": "Next.js",
+        "iconName": "SiNextdotjs"
+      }
+    ],
+    "details": {
+      "summary": "A brief summary of project 2",
+      "keyObjectives": [
+        "Objective A",
+        "Objective B"
+      ],
+      "challenges": [
+        "Challenge X",
+        "Challenge Y"
+      ],
+      "learnings": [
+        "Learning A",
+        "Learning B"
+      ]
+    },
+    "links": {
+      "github": "https://github.com/example/project-2",
+      "youtube": "https://youtube.com/example/project-2",
+      "documentation": "https://docs.example.com/project-2"
+    },
+    "galleryImages": [
+      "image1.jpg",
+      "image2.jpg"
+    ]
+  }
+} 
