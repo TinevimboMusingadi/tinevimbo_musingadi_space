@@ -31,6 +31,11 @@ export interface ProjectContent {
   content: string;
   skills: Skill[];
   details: ProjectDetails;
-  links: ProjectLinks;
+  links: {
+    github?: string;
+    youtube?: string;
+    documentation?: string;
+    demo?: string;
+  };
   galleryImages: string[];
 } 

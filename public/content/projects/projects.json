@@ -1,11 +1,11 @@
 {
   "flood-device": {
     "title": "Last Minute Flood Forecasting Device",
-    "description": "Invented a proof of concept flash flood forecasting device that used embedded systems and AI to predict flash flooding.",
+    "description": "Developed a proof-of-concept flash flood forecasting device that utilizes embedded systems and AI to predict flash floods in real time.",
     "category": "hybrid-engineering",
     "icon": "FaWater",
-    "image": "cover.jpg",
-    "content": "# Project Overview...",
+    "image": "/content/projects/flood-device/cover.jpg",
+    "content": "# Overview\n\nThis innovative project combines embedded systems and artificial intelligence to create a real-time flash flood forecasting device. The system uses a network of sensors to collect environmental data and processes it through a machine learning model to predict potential flash floods.\n\n## Key Features\n- Real-time flood prediction with 85% accuracy\n- 30-minute early warning window\n- Solar-powered operation\n- Wireless sensor network\n- AI-powered prediction model\n\n# Technical Implementation\n\n## Hardware Components\n- Raspberry Pi 4 as the main processing unit\n- Environmental sensors (rainfall, water level, soil moisture)\n- LoRa wireless communication module\n- Solar-powered battery system\n\n## Software Architecture\nThe system is built with a modular architecture:\n1. Data Collection Layer\n2. Processing Layer\n3. Prediction Layer\n4. Communication Layer\n\n## AI Model\nWe developed a custom TensorFlow model that processes:\n- Historical weather data\n- Real-time sensor readings\n- Topographical information\n\n# Results & Impact\n\nThe device successfully predicted flash floods with 85% accuracy within a 30-minute window, providing crucial early warning to communities.\n\n## Performance Metrics\n- 85% prediction accuracy\n- 30-minute warning window\n- 24/7 operation capability\n- Low power consumption",
     "skills": [
       {
         "name": "Python",
@@ -14,6 +14,10 @@
       {
         "name": "TensorFlow",
         "iconName": "SiTensorflow"
+      },
+      {
+        "name": "Embedded Systems",
+        "iconName": "SiPython"
       }
     ],
     "details": {
@@ -36,22 +40,70 @@
     },
     "links": {
       "github": "https://github.com/yourusername/flood-forecast",
-      "youtube": "https://youtube.com/watch?v=...",
+      "youtube": "https://youtu.be/6lA34AVhf28?si=xbmLh7O5qjDy2lS8",
+      "documentation": "https://solve.mit.edu/solutions/83423",
+      "demo": "https://youtu.be/1Z6CmodCizo?si=kJ15YEyCO80OPWDQ"
+    },
+    "galleryImages": [
+      "/content/projects/flood-device/gallery/1.jpg",
+      "/content/projects/flood-device/gallery/2.jpg",
+      "/content/projects/flood-device/gallery/3.jpg"
+    ]
+  },
+  "precipitation-model": {
+    "title": "Ground-Based Precipitation Nowcasting Model",
+    "description": "Created a novel ground-based precipitation nowcasting model that predicts rainfall using local data sources such as cloud images and sensor data.",
+    "category": "hybrid-engineering",
+    "icon": "FaCloud",
+    "image": "/content/projects/precipitation-model/cover.jpg",
+    "content": "# Project Overview...",
+    "skills": [
+      {
+        "name": "Python",
+        "iconName": "SiPython"
+      },
+      {
+        "name": "PyTorch",
+        "iconName": "SiPytorch"
+      },
+      {
+        "name": "Computer Vision",
+        "iconName": "SiPython"
+      }
+    ],
+    "details": {
+      "summary": "A novel approach to weather prediction using ground-based data and machine learning.",
+      "keyObjectives": [
+        "Create low-cost weather forecasting solution",
+        "Develop new cloud cover measurement method",
+        "Implement local data processing system"
+      ],
+      "challenges": [
+        "Complex data integration",
+        "Real-time image processing",
+        "Accuracy optimization"
+      ],
+      "learnings": [
+        "Weather pattern analysis",
+        "Computer vision techniques",
+        "Sensor data integration"
+      ]
+    },
+    "links": {
+      "github": "https://github.com/yourusername/precipitation-model",
       "documentation": "https://docs.google.com/..."
     },
     "galleryImages": [
-      "prototype.jpg",
-      "architecture.png",
-      "demo.mp4"
+      "/content/projects/precipitation-model/gallery/cover.jpg"
     ]
   },
-  "project-2": {
-    "title": "Example Project 2",
-    "description": "Another example project description",
+  "vector-notebook": {
+    "title": "Vector Notebook & Vector Agent",
+    "description": "Built an AI-powered data science assistant that allows users to analyze and model data through natural language prompts.",
     "category": "software-ai",
-    "icon": "FaCode",
-    "image": "/content/projects/project-2/cover.jpg",
-    "content": "# Example Project 2\n\nThis is another example project description written in markdown.\n\n## Technologies Used\n\n- Technology 1\n- Technology 2\n- Technology 3\n\n## Implementation\n\nDetailed implementation description goes here.",
+    "icon": "FaRobot",
+    "image": "/content/projects/vector-notebook/cover.jpg",
+    "content": "# Project Overview...",
     "skills": [
       {
         "name": "React",
@@ -60,31 +112,177 @@
       {
         "name": "Next.js",
         "iconName": "SiNextdotjs"
+      },
+      {
+        "name": "OpenAI",
+        "iconName": "SiOpenai"
       }
     ],
     "details": {
-      "summary": "A brief summary of project 2",
+      "summary": "An intelligent data science assistant that enhances productivity through AI-powered automation.",
       "keyObjectives": [
-        "Objective A",
-        "Objective B"
+        "Create natural language interface for data science",
+        "Implement AI-powered code generation",
+        "Build knowledge graph integration"
       ],
       "challenges": [
-        "Challenge X",
-        "Challenge Y"
+        "Complex language understanding",
+        "Code generation accuracy",
+        "Knowledge graph optimization"
       ],
       "learnings": [
-        "Learning A",
-        "Learning B"
+        "LLM integration techniques",
+        "Knowledge graph development",
+        "AI agent architecture"
       ]
     },
     "links": {
-      "github": "https://github.com/example/project-2",
-      "youtube": "https://youtube.com/example/project-2",
-      "documentation": "https://docs.example.com/project-2"
+      "github": "https://github.com/yourusername/vector-notebook",
+      "documentation": "https://docs.google.com/..."
     },
     "galleryImages": [
-      "image1.jpg",
-      "image2.jpg"
+      "/content/projects/vector-notebook/gallery/cover.jpg"
+    ]
+  },
+  "bounce-books": {
+    "title": "Bounce Books",
+    "description": "An AI-powered accounting tool inspired by Vector Notebook, designed to augment bookkeeping tasks and enhance productivity for accountants.",
+    "category": "software-ai",
+    "icon": "FaCode",
+    "image": "/content/projects/bounce-books/cover.jpg",
+    "content": "# Project Overview...",
+    "skills": [
+      {
+        "name": "React",
+        "iconName": "SiReact"
+      },
+      {
+        "name": "Next.js",
+        "iconName": "SiNextdotjs"
+      },
+      {
+        "name": "OpenAI",
+        "iconName": "SiOpenai"
+      }
+    ],
+    "details": {
+      "summary": "An innovative AI-powered accounting tool that streamlines financial workflows.",
+      "keyObjectives": [
+        "Automate financial analysis",
+        "Implement AI-driven reporting",
+        "Create transaction categorization system"
+      ],
+      "challenges": [
+        "Financial data accuracy",
+        "Complex regulation compliance",
+        "User workflow integration"
+      ],
+      "learnings": [
+        "Financial AI integration",
+        "Automated reporting systems",
+        "Workflow optimization"
+      ]
+    },
+    "links": {
+      "github": "https://github.com/yourusername/bounce-books",
+      "documentation": "https://docs.google.com/..."
+    },
+    "galleryImages": [
+      "/content/projects/bounce-books/gallery/cover.jpg"
+    ]
+  },
+  "bayesian-decoding": {
+    "title": "Bayesian Statistics & Speculative Decoding",
+    "description": "Researching Bayesian-inspired algorithms to optimize speculative decoding in large language models (LLMs).",
+    "category": "llm-agents",
+    "icon": "FaRobot",
+    "image": "/content/projects/bayesian-decoding/cover.jpg",
+    "content": "# Project Overview...",
+    "skills": [
+      {
+        "name": "Python",
+        "iconName": "SiPython"
+      },
+      {
+        "name": "PyTorch",
+        "iconName": "SiPytorch"
+      },
+      {
+        "name": "TensorFlow",
+        "iconName": "SiTensorflow"
+      }
+    ],
+    "details": {
+      "summary": "Advanced research into improving LLM efficiency using Bayesian methods.",
+      "keyObjectives": [
+        "Optimize token prediction",
+        "Reduce computation time",
+        "Maintain prediction accuracy"
+      ],
+      "challenges": [
+        "Complex mathematical modeling",
+        "Performance optimization",
+        "Integration with transformers"
+      ],
+      "learnings": [
+        "Bayesian neural networks",
+        "Speculative decoding",
+        "LLM optimization"
+      ]
+    },
+    "links": {
+      "github": "https://github.com/yourusername/bayesian-decoding",
+      "documentation": "https://docs.google.com/..."
+    },
+    "galleryImages": [
+      "/content/projects/bayesian-decoding/gallery/cover.jpg"
+    ]
+  },
+  "tree-token": {
+    "title": "Synthetic Dataset for Tree-Structured Token Generation",
+    "description": "Created a synthetic dataset where token generation follows a tree structure, selecting the top 3 probable tokens at each step.",
+    "category": "llm-agents",
+    "icon": "FaCode",
+    "image": "/content/projects/tree-token/cover.jpg",
+    "content": "# Project Overview...",
+    "skills": [
+      {
+        "name": "Python",
+        "iconName": "SiPython"
+      },
+      {
+        "name": "PyTorch",
+        "iconName": "SiPytorch"
+      },
+      {
+        "name": "TensorFlow",
+        "iconName": "SiTensorflow"
+      }
+    ],
+    "details": {
+      "summary": "A novel approach to improving language model training through structured token generation.",
+      "keyObjectives": [
+        "Create synthetic training data",
+        "Implement tree-based generation",
+        "Improve prediction efficiency"
+      ],
+      "challenges": [
+        "Dataset quality control",
+        "Tree structure optimization",
+        "Integration with existing models"
+      ],
+      "learnings": [
+        "Token generation techniques",
+        "Tree-based algorithms",
+        "Dataset synthesis"
+      ]
+    },
+    "links": {
+      "github": "https://github.com/yourusername/tree-token",
+      "documentation": "https://docs.google.com/..."
+    },
+    "galleryImages": [
+      "/content/projects/tree-token/gallery/cover.jpg"
     ]
   }
 } 

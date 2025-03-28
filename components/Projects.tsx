@@ -9,6 +9,8 @@ import { SiPython, SiTensorflow, SiPytorch, SiReact, SiNextdotjs, SiOpenai } fro
 import { getProjectContent, getAllProjects, optimizeImage } from '@/app/utils/contentManager';
 import type { ProjectContent, Skill, IconName } from '@/types/project';
 import { MDXRemote } from 'next-mdx-remote';
+import { getProjects, getProjectById } from '@/app/utils/projects';
+import projectsData from '@/public/content/projects/projects.json';
 
 // Icon mapping
 const iconMap: Record<IconName, React.ReactElement> = {
@@ -310,6 +312,22 @@ const ProjectCanvas = ({
                       <FaYoutube className="text-2xl" />
                     </div>
                     <div>
+                      <h4 className="font-semibold">Project Overview</h4>
+                      <p className="text-sm text-gray-400">Watch project overview</p>
+                    </div>
+                  </a>
+                )}
+                {project.links?.demo && (
+                  <a
+                    href={project.links.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 p-4 rounded-xl bg-red-900/30 hover:bg-red-900/50 transition-all transform hover:-translate-y-1"
+                  >
+                    <div className="w-12 h-12 rounded-full bg-red-900/50 flex items-center justify-center">
+                      <FaYoutube className="text-2xl" />
+                    </div>
+                    <div>
                       <h4 className="font-semibold">Demo Video</h4>
                       <p className="text-sm text-gray-400">Watch project demonstration</p>
                     </div>
@@ -326,8 +344,8 @@ const ProjectCanvas = ({
                       <FaExternalLinkAlt className="text-2xl" />
                     </div>
                     <div>
-                      <h4 className="font-semibold">Documentation</h4>
-                      <p className="text-sm text-gray-400">Read detailed documentation</p>
+                      <h4 className="font-semibold">MIT Solve</h4>
+                      <p className="text-sm text-gray-400">View project details</p>
                     </div>
                   </a>
                 )}
@@ -455,7 +473,20 @@ export default function Projects() {
       try {
         setLoading(true);
         setError(null);
-        const allProjects = await getAllProjects();
+        
+        // Convert the static projects data to the required format
+        const allProjects = Object.entries(projectsData).map(([id, project]: [string, any]) => ({
+          ...project,
+          id,
+          icon: React.createElement(
+            project.icon === 'FaWater' ? FaWater :
+            project.icon === 'FaCloud' ? FaCloud :
+            project.icon === 'FaRobot' ? FaRobot :
+            FaCode,
+            { className: "text-2xl" }
+          )
+        }));
+        
         if (allProjects.length === 0) {
           setError("No projects found");
         }
@@ -555,11 +586,14 @@ export default function Projects() {
               className="bg-gray-900/50 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl hover:shadow-indigo-500/10 transition-all hover:-translate-y-2"
             >
               <div className="relative h-48 w-full overflow-hidden">
+                <div className="absolute inset-0 bg-gray-800 animate-pulse" /> {/* Loading placeholder */}
                 <Image
-                        src={optimizeImage(project.image, { width: 400, height: 200 })}
+                  src={project.image}
                   alt={project.title}
                   fill
                   className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority={index < 3}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70"></div>
               </div>

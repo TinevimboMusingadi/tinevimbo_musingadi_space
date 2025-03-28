@@ -57,32 +57,17 @@ export async function getProjectContent(projectId: string): Promise<ProjectConte
       return null;
     }
 
-    // Fetch markdown content from the API
-    let contentHtml = '';
-    try {
-      const response = await fetch(`/api/projects/${projectId}`);
-      const data = await response.json();
-      if (data.content) {
-        // Process markdown content with remark
-        const processedContent = await remark()
-          .use(html)
-          .process(data.content);
-        contentHtml = processedContent.toString();
+    // Process markdown content with remark
+    const processedContent = await remark()
+      .use(html)
+      .process(metadata.content);
+    const contentHtml = processedContent.toString();
 
-        // Replace relative paths with absolute paths
-        contentHtml = contentHtml.replace(
-          /(src|href)="\.\//g,
-          `$1="/content/projects/${projectId}/`
-        );
-      }
-    } catch (error) {
-      console.warn(`Failed to fetch markdown content for project ${projectId}:`, error);
-      // Fallback to metadata content if API fails
-      const processedContent = await remark()
-        .use(html)
-        .process(metadata.content);
-      contentHtml = processedContent.toString();
-    }
+    // Replace relative paths with absolute paths
+    const processedHtml = contentHtml.replace(
+      /(src|href)="\.\//g,
+      `$1="/content/projects/${projectId}/`
+    );
 
     // Get gallery images from metadata
     const galleryImages = metadata.galleryImages || [];
@@ -109,7 +94,7 @@ export async function getProjectContent(projectId: string): Promise<ProjectConte
       category: metadata.category,
       icon,
       image,
-      content: contentHtml,
+      content: processedHtml,
       skills,
       details: metadata.details,
       links: metadata.links,
@@ -155,21 +140,11 @@ export function optimizeImage(imagePath: string, options: {
 } = {}) {
   if (!imagePath) {
     console.error('No image path provided to optimizeImage');
-    return '';
+    return '/placeholder.jpg'; // Add a placeholder image
   }
 
-  try {
-    const { width, height, quality = 75 } = options;
-    
-    // Construct the image URL with optimization parameters
-    const params = new URLSearchParams();
-    if (width) params.append('w', width.toString());
-    if (height) params.append('h', height.toString());
-    params.append('q', quality.toString());
-    
-    return `/_next/image?url=${encodeURIComponent(imagePath)}&${params.toString()}`;
-  } catch (error) {
-    console.error('Error optimizing image:', error);
-    return imagePath;
-  }
+  // Make sure the path starts with a forward slash
+  const normalizedPath = imagePath.startsWith('/') ? imagePath : `/${imagePath}`;
+  
+  return normalizedPath;
 } 

@@ -78,6 +78,55 @@ const featuredConfig: FeaturedDataType = {
   imageDir: "/talks/featured"
 };
 
+// Static talk data with images
+const talksWithImages: TalkWithImages[] = [
+  {
+    id: 1,
+    title: "AI Agents and the Next Paradigm",
+    event: "Deep Learning Indaba X 2024",
+    date: "2024",
+    location: "Zimbabwe",
+    description: "Discussed the evolving landscape of AI agents and their potential to transform industries.",
+    imageDir: "/talks/indaba",
+    images: [
+      "/talks/indaba/1.jpg",
+      "/talks/indaba/2.jpg"
+    ]
+  },
+  {
+    id: 2,
+    title: "Building AI Agents for Productivity",
+    event: "Google Developer Group",
+    date: "2024",
+    location: "Zimbabwe",
+    description: "Explored how AI agents can enhance productivity across various domains.",
+    imageDir: "/talks/gdg",
+    images: [
+      "/talks/gdg/1.jpg",
+      "/talks/gdg/2.jpg"
+    ]
+  },
+  {
+    id: 3,
+    title: "The Future of AI in Africa",
+    event: "Zimbabwe AI Week",
+    date: "December 2024",
+    location: "Harare",
+    description: "Discussed opportunities and challenges for AI development in the African context.",
+    imageDir: "/talks/ai-week",
+    images: [
+      "/talks/ai-week/1.jpg",
+      "/talks/ai-week/2.jpg"
+    ]
+  }
+];
+
+// Static featured images
+const featuredImages = [
+  "/talks/featured/1.jpg",
+  "/talks/featured/2.jpg"
+];
+
 // Add this new component for the sparkle effect
 const Sparkle = () => (
   <motion.div
@@ -111,11 +160,11 @@ export default function Talks() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTalkImages, setCurrentTalkImages] = useState<string[]>([]);
   const [featuredFullscreen, setFeaturedFullscreen] = useState<{imageIndex: number, src: string} | null>(null);
-  const [featuredImages, setFeaturedImages] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [talksWithImages, setTalksWithImages] = useState<TalkWithImages[]>(
     talks.map(talk => ({ ...talk, images: [] }))
   );
+  const [featuredImages, setFeaturedImages] = useState<string[]>([]);
 
   // Function to get next image index
   const getNextImageIndex = useCallback((currentIndex: number) => {
@@ -167,35 +216,27 @@ export default function Talks() {
     );
   };
 
-  /**
-   * Image Loading and API Integration
-   * -------------------------------
-   * Fetches images from the server for both featured section and individual talks.
-   * Uses proper type annotations for API responses and async functions.
-   */
   useEffect(() => {
     async function fetchImages() {
       try {
-        // Fetch featured images with type-safe response handling
-        const featuredResponse = await fetch(`/api/talks-images?dir=${featuredConfig.imageDir}`);
-        const featuredResult: ApiResponse = await featuredResponse.json();
-        setFeaturedImages(featuredResult.images);
+        // Use static featured images
+        setFeaturedImages([
+          '/talks/featured/1.jpg',
+          '/talks/featured/2.jpg'
+        ]);
 
-        // Fetch images for each talk with proper typing
-        const updatedTalks = await Promise.all(
-          talks.map(async (talk) => {
-            const response = await fetch(`/api/talks-images?dir=${talk.imageDir}`);
-            const data: ApiResponse = await response.json();
-            return {
-              ...talk,
-              images: data.images
-            };
-          })
-        );
+        // Use static talk images
+        const updatedTalks = talks.map(talk => ({
+          ...talk,
+          images: [
+            `${talk.imageDir}/1.jpg`,
+            `${talk.imageDir}/2.jpg`
+          ]
+        }));
 
         setTalksWithImages(updatedTalks);
       } catch (error) {
-        console.error('Error fetching images:', error);
+        console.error('Error setting up images:', error);
       } finally {
         setIsLoading(false);
       }

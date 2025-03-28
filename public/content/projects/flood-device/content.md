@@ -47,17 +47,8 @@ The device successfully predicted flash floods with 85% accuracy within a 30-min
 
 # Gallery
 
-## Device Prototype
-![Device Prototype](./gallery/prototype.jpg)
-
-## System Architecture
-![System Architecture](./gallery/architecture.png)
-
-## Demo Video
-<video controls class="w-full rounded-lg shadow-lg">
-  <source src="./gallery/demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+## Device Overview
+![Device Overview](./gallery/cover.jpg)
 
 # Technical Challenges & Solutions
 

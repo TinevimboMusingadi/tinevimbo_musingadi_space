@@ -5,6 +5,15 @@ import { FaTimes, FaPlay, FaPause, FaChevronLeft, FaChevronRight } from 'react-i
 import Image from 'next/image';
 import { useState, useEffect, useCallback } from 'react';
 
+// Static profile images
+const profileImages = [
+  '/profile/1.jpg',
+  '/profile/2.jpg',
+  '/profile/3.jpg',
+  '/profile/4.jpg',
+  '/profile/20230515_122219.jpg'
+];
+
 // Add the Sparkle component
 const Sparkle = () => (
   <motion.div
@@ -27,26 +36,29 @@ const Sparkle = () => (
 );
 
 export default function About() {
-  const [fullscreenImage, setFullscreenImage] = useState<{imageIndex: number, src: string} | null>(null);
+  const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [profileImages, setProfileImages] = useState<string[]>(['/profile/default.jpg']);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Fetch images when component mounts
   useEffect(() => {
-    async function fetchImages() {
+    const fetchImages = async () => {
       try {
-        const response = await fetch('/api/profile-images');
-        const data = await response.json();
-        if (data.images && data.images.length > 0) {
-          setProfileImages(data.images);
-        }
+        // Use static profile images
+        const images = [
+          '/profile/1.jpg',
+          '/profile/2.jpg',
+          '/profile/3.jpg',
+          '/profile/4.jpg',
+          '/profile/20230515_122219.jpg'
+        ];
+        setProfileImages(images);
       } catch (error) {
-        console.error('Error fetching profile images:', error);
+        console.error('Error setting up profile images:', error);
       } finally {
         setIsLoading(false);
       }
-    }
+    };
 
     fetchImages();
   }, []);
@@ -67,11 +79,8 @@ export default function About() {
 
     if (isPlaying && fullscreenImage) {
       slideshowTimer = setInterval(() => {
-        const nextIndex = getNextImageIndex(fullscreenImage.imageIndex);
-        setFullscreenImage({
-          imageIndex: nextIndex,
-          src: profileImages[nextIndex]
-        });
+        const nextIndex = getNextImageIndex(profileImages.indexOf(fullscreenImage));
+        setFullscreenImage(profileImages[nextIndex]);
       }, 3000);
     }
 
@@ -84,20 +93,14 @@ export default function About() {
 
   const handlePrevImage = () => {
     if (!fullscreenImage) return;
-    const prevIndex = getPrevImageIndex(fullscreenImage.imageIndex);
-    setFullscreenImage({
-      imageIndex: prevIndex,
-      src: profileImages[prevIndex]
-    });
+    const prevIndex = getPrevImageIndex(profileImages.indexOf(fullscreenImage));
+    setFullscreenImage(profileImages[prevIndex]);
   };
 
   const handleNextImage = () => {
     if (!fullscreenImage) return;
-    const nextIndex = getNextImageIndex(fullscreenImage.imageIndex);
-    setFullscreenImage({
-      imageIndex: nextIndex,
-      src: profileImages[nextIndex]
-    });
+    const nextIndex = getNextImageIndex(profileImages.indexOf(fullscreenImage));
+    setFullscreenImage(profileImages[nextIndex]);
   };
 
   const togglePlayPause = () => {
@@ -136,7 +139,7 @@ export default function About() {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.5 }}
                 onClick={() => {
-                  setFullscreenImage({ imageIndex: 0, src: profileImages[0] });
+                  setFullscreenImage(profileImages[0]);
                   document.body.style.overflow = 'hidden';
                 }}
               >
@@ -232,7 +235,7 @@ export default function About() {
               onClick={e => e.stopPropagation()}
             >
               <Image
-                src={fullscreenImage.src}
+                src={fullscreenImage}
                 alt="Profile view"
                 fill
                 className="object-contain rounded-lg"
@@ -282,7 +285,7 @@ export default function About() {
               {/* Image Counter and Instructions */}
               <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center">
                 <div className="text-white bg-black/50 px-4 py-2 rounded-lg">
-                  {fullscreenImage.imageIndex + 1} / {profileImages.length}
+                  {profileImages.indexOf(fullscreenImage) + 1} / {profileImages.length}
                 </div>
                 <div className="text-white bg-black/50 px-4 py-2 rounded-lg">
                   {isPlaying ? 'Click to pause' : 'Click to play slideshow'}
