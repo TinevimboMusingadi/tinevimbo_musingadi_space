@@ -2,9 +2,11 @@
 const nextConfig = {
   output: 'export',
   images: {
-    unoptimized: true
+    unoptimized: true,
+    remotePatterns: []
   },
-  trailingSlash: true
+  trailingSlash: true,
+  distDir: 'out'
 }
 
 module.exports = nextConfig 
