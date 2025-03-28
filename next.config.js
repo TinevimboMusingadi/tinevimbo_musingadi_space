@@ -1,23 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  webpack: (config) => {
-    config.module.rules.push({
-      test: /\.md$/,
-      use: 'raw-loader'
-    });
-    return config;
-  },
   images: {
-    unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      }
-    ],
+    unoptimized: true
   },
-  trailingSlash: true,
-};
+  trailingSlash: true
+}
 
-module.exports = nextConfig; 
+module.exports = nextConfig 
