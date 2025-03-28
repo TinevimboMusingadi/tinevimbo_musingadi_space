@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { FaCode, FaRobot, FaWater, FaCloud, FaTimes, FaGithub, FaYoutube, FaExternalLinkAlt } from 'react-icons/fa';
 import { SiPython, SiTensorflow, SiPytorch, SiReact, SiNextdotjs, SiOpenai } from 'react-icons/si';
-import { getProjectContent, getAllProjects, optimizeImage } from '@/app/utils/contentManager';
+import { optimizeImage } from '@/app/utils/contentManager';
 import type { ProjectContent, Skill, IconName } from '@/types/project';
 import { MDXRemote } from 'next-mdx-remote';
 import { getProjects, getProjectById } from '@/app/utils/projects';
