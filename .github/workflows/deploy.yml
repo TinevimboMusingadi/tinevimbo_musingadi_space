@@ -9,18 +9,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Setup Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
         node-version: '20'
+        cache: 'npm'
 
     - name: Install Dependencies
-      run: npm install
+      run: npm ci
 
     - name: Build
+      run: npm run build
+      env:
+        NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
+
+    - name: Export
       run: npm run export
+
+    - name: List Build Output
+      run: ls -la out/
 
     - name: Deploy to Bluehost
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
@@ -30,3 +39,5 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./out/
         server-dir: /public_html/website_15f9be3d/
+        dangerous-clean-slate: true
+        log-level: verbose
