@@ -204,7 +204,7 @@ export default function About() {
                 On the engineering side, I've been busy developing Vector Notebook, a data science agentic tool. Here, I'm exploring the applications of Large Language Models (LLMs) to create agents that can perform modeling, machine learning, and data science tasks. While I acknowledge that this is an ambitious dream and a learning experience, it's been an exciting journey.
               </p>
               <p className="text-lg leading-relaxed mt-4">
-                Check out <a href="http://Latentia.co.zw" className="text-indigo-400 hover:text-indigo-300 underline" target="_blank" rel="noopener noreferrer">Latentia.co.zw</a> my AI startup to follow my progress!
+                Check out <a href="http://type1ai.co" className="text-indigo-400 hover:text-indigo-300 underline" target="_blank" rel="noopener noreferrer">Latentia.co.zw</a> my AI startup to follow my progress!
               </p>
             </div>
           </motion.div>
